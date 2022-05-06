@@ -50,6 +50,7 @@ The following are instructions on how to complete project 6 for a grade as well 
 
 2. Add a method to the `DictionaryController` that calls your new service method and returns the words to the calling process.  To do this:
 - Copy the `getWordsStartingWith` method
+- Change the @GetMapping to `/getWordsEndingWith/{value}`
 - Change the new method name to `getWordsEndingWith` 
 - Change the method call to the service to `getWordsEndingWith`, which calls the method you created in step 1 above.
 - Change the wording of the log message to reflect the new method's functionality.
