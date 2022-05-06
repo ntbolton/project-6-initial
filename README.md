@@ -109,7 +109,7 @@ The following are instructions on how to complete project 6 for a grade as well 
 
 4. Test your new aggregator endpoint using a browser or Postman
 
-##### Extra Credit - 20 points
+##### Extra Credit - 50 points
 
 - For extra credit, rewrite the palindrome service method to NOT use streams.
 - You get to decide when/where to use loops, if-statements, etc...
