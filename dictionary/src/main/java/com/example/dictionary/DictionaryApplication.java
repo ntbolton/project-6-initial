@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
 @SpringBootApplication
 public class DictionaryApplication {
 
@@ -14,8 +13,6 @@ public class DictionaryApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DictionaryApplication.class, args);
-
-        log.info("hello spring");
     }
 
 
