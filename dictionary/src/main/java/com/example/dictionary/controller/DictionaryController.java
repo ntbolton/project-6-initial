@@ -96,7 +96,7 @@ public class DictionaryController {
 
     }
 
-    @GetMapping("/getWordsThatContainConsecutiveLetters/{value}")
+    @GetMapping("/getWordsThatContainConsecutiveLetters/")
     public List<Entry> getWordsThatContainConsecutiveLetters(@PathVariable String value) throws WordNotFoundException {
 
         StopWatch sw = new StopWatch();
