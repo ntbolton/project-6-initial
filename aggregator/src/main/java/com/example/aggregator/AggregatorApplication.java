@@ -10,4 +10,6 @@ public class AggregatorApplication {
         SpringApplication.run(AggregatorApplication.class, args);
     }
 
+
+
 }
