@@ -7,6 +7,8 @@ import com.example.dictionary.service.DictionaryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -119,4 +121,29 @@ public class DictionaryController {
 
     }
 
-}
+    @QueryMapping
+    public Entry entryByWord(@Argument String word) throws WordNotFoundException {
+
+        StopWatch sw = new StopWatch();
+        sw.start();
+        Entry entry = this.dictionaryService.getWord(word);
+        sw.stop();
+
+        long nanoSeconds = sw.getLastTaskTimeNanos();
+        String message = new StringBuilder()
+                .append("GraphQL Retrieved entry for [")
+                .append(word)
+                .append("] in ")
+                .append(nanoSeconds / 1000000.0)
+                .append("ms")
+                .toString();
+        logger.info(message);
+        return entry;
+
+    }
+
+
+    }
+
+
+
