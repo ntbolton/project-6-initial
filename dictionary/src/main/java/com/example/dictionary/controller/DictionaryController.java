@@ -1,12 +1,10 @@
 package com.example.dictionary.controller;
 
-
 import com.example.dictionary.exception.WordNotFoundException;
 import com.example.dictionary.model.Entry;
 import com.example.dictionary.service.DictionaryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.util.StopWatch;
@@ -19,11 +17,9 @@ import java.util.List;
 @RestController
 public class DictionaryController {
 
-
     private static final Logger logger = LoggerFactory.getLogger(DictionaryController.class);
 
     private final DictionaryService dictionaryService;
-
 
     public DictionaryController(DictionaryService dictionaryService) {
         this.dictionaryService = dictionaryService;
@@ -38,8 +34,7 @@ public class DictionaryController {
         sw.stop();
 
         long nanoSeconds = sw.getLastTaskTimeNanos();
-        String message = new StringBuilder()
-                .append("Retrieved entry for [")
+        String message = new StringBuilder("Retrieved entry for [")
                 .append(word)
                 .append("] in ")
                 .append(nanoSeconds / 1000000.0)
@@ -47,9 +42,7 @@ public class DictionaryController {
                 .toString();
         logger.info(message);
         return entry;
-
     }
-
 
     @GetMapping("/getWordsStartingWith/{value}")
     public List<Entry> getWordsStartingWith(@PathVariable String value) throws WordNotFoundException {
@@ -60,20 +53,17 @@ public class DictionaryController {
         sw.stop();
 
         long nanoSeconds = sw.getLastTaskTimeNanos();
-        String message = new StringBuilder()
-                .append("Retrieved entries for words starting with [")
+        String message = new StringBuilder("Retrieved entries for words starting with [")
                 .append(value)
                 .append("] containing ")
                 .append(entries.size())
-                .append(" entries in")
+                .append(" entries in ")
                 .append(nanoSeconds / 1000000.0)
                 .append("ms")
                 .toString();
         logger.info(message);
         return entries;
-
     }
-
 
     @GetMapping("/getWordsThatContain/{value}")
     public List<Entry> getWordsThatContain(@PathVariable String value) throws WordNotFoundException {
@@ -84,21 +74,19 @@ public class DictionaryController {
         sw.stop();
 
         long nanoSeconds = sw.getLastTaskTimeNanos();
-        String message = new StringBuilder()
-                .append("Retrieved entries for words that contain ")
+        String message = new StringBuilder("Retrieved entries for words that contain [")
                 .append(value)
                 .append("] containing ")
                 .append(entries.size())
-                .append(" entries in")
+                .append(" entries in ")
                 .append(nanoSeconds / 1000000.0)
                 .append("ms")
                 .toString();
         logger.info(message);
         return entries;
-
     }
 
-    @GetMapping("/getWordsThatContainConsecutiveLetters/")
+    @GetMapping("/getWordsThatContainConsecutiveLetters")
     public List<Entry> getWordsThatContainConsecutiveLetters() throws WordNotFoundException {
 
         StopWatch sw = new StopWatch();
@@ -107,18 +95,16 @@ public class DictionaryController {
         sw.stop();
 
         long nanoSeconds = sw.getLastTaskTimeNanos();
-        String message = new StringBuilder()
-                .append("Retrieved entries for words that contain")
+        String message = new StringBuilder("Retrieved entries for words that contain")
                 .append(" consecutive double letters ")
                 .append(" containing ")
                 .append(entries.size())
-                .append(" entries in")
+                .append(" entries in ")
                 .append(nanoSeconds / 1000000.0)
                 .append("ms")
                 .toString();
         logger.info(message);
         return entries;
-
     }
 
     @QueryMapping
@@ -130,8 +116,7 @@ public class DictionaryController {
         sw.stop();
 
         long nanoSeconds = sw.getLastTaskTimeNanos();
-        String message = new StringBuilder()
-                .append("GraphQL Retrieved entry for [")
+        String message = new StringBuilder("GraphQL retrieved entry for [")
                 .append(word)
                 .append("] in ")
                 .append(nanoSeconds / 1000000.0)
@@ -139,11 +124,5 @@ public class DictionaryController {
                 .toString();
         logger.info(message);
         return entry;
-
     }
-
-
-    }
-
-
-
+}

@@ -29,7 +29,6 @@ public class Entry {
         this.definition = definition;
     }
 
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Entry{");
@@ -42,7 +41,4 @@ public class Entry {
         sb.append('}');
         return sb.toString();
     }
-
-
 }
-

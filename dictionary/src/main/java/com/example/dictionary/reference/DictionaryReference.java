@@ -27,6 +27,9 @@ public class DictionaryReference {
         } catch (JsonProcessingException e) {
             logger.error("Failed to read dictionary file.");
         }
+    }
+
+    private DictionaryReference() {
 
     }
 
@@ -57,11 +60,6 @@ public class DictionaryReference {
                 .toString();
 
         logger.info(message);
-
-
-    }
-
-    private DictionaryReference() {
 
     }
 

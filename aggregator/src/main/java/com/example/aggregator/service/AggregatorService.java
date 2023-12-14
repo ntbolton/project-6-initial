@@ -16,7 +16,6 @@ public class AggregatorService {
         this.restClient = restClient;
     }
 
-
     public Entry getDefinitionFor(String word) {
         return restClient.getDefinitionFor(word);
     }
@@ -30,7 +29,9 @@ public class AggregatorService {
         common.retainAll(wordsThatContainSuccessiveLetters);
 
         return common;
-
     }
 
-}
+
+
+
+    }

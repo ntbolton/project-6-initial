@@ -14,5 +14,4 @@ public class AggregatorConfig {
         return template;
     }
 
-
 }
